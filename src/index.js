@@ -10,49 +10,50 @@ import interactionInfo from "./interactions/info";
 import interactionStats from "./interactions/stats";
 import interactionHello from "./interactions/hello";
 import interactionTrigger from "./interactions/trigger";
-import interactionRename from "./interactions/rename";
-import interactionSlackInvite from "./interactions/slackInvite";
-import interactionLeaderAdd from "./interactions/leaderAdd";
-import interactionLeaderList from "./interactions/leaderList";
-import interactionMeetingList from "./interactions/meetingList";
-import interactionMeetingAdd from "./interactions/meetingAdd";
-import interactionMeetingRemove from "./interactions/meetingRemove";
-import interactionMeetingTime from "./interactions/meetingTime";
-import interactionTutorial from "./interactions/tutorial";
+// import interactionRename from "./interactions/rename";
+// import interactionSlackInvite from "./interactions/slackInvite";
+// import interactionLeaderAdd from "./interactions/leaderAdd";
+// import interactionLeaderList from "./interactions/leaderList";
+// import interactionMeetingList from "./interactions/meetingList";
+// import interactionMeetingAdd from "./interactions/meetingAdd";
+// import interactionMeetingRemove from "./interactions/meetingRemove";
+// import interactionMeetingTime from "./interactions/meetingTime";
+// import interactionTutorial from "./interactions/tutorial";
 import interactionCatchall from "./interactions/catchall";
 import interactionMocking from "./interactions/mocking";
-import interactionPromo from "./interactions/promo";
-import interactionGet from "./interactions/get";
-import interactionModerate from "./interactions/moderate";
-import interactionAnnouncement from "./interactions/announcement";
+// import interactionPromo from "./interactions/promo";
+// import interactionGet from "./interactions/get";
+// import interactionModerate from "./interactions/moderate";
+// import interactionAnnouncement from "./interactions/announcement";
 import interactionHacktoberfest from "./interactions/hacktoberfest";
 import interactionLeaderInvite from "./interactions/leaderInvite";
 import interactionAddress from "./interactions/address";
-import interactionClubAddress from "./interactions/clubAddress";
+// import interactionClubAddress from "./interactions/clubAddress";
 import interactionDM from "./interactions/dm";
 import interactionGPT from "./interactions/gpt";
 import interactionStartup from "./interactions/startup";
-import interactionWordcloud from "./interactions/wordcloud";
-import interactionReport from "./interactions/report";
+// import interactionWordcloud from "./interactions/wordcloud";
+// import interactionReport from "./interactions/report";
 import interactionForget from "./interactions/forget";
 import interactionAirtable from "./interactions/airtable";
+import interactionRoll from "./interactions/roll";
 import interactionCheckinNotification from "./interactions/checkinNotification";
 import interactionCheckinReply from "./interactions/checkinReply";
-import interactionClubCard from "./interactions/clubCard";
+// import interactionClubCard from "./interactions/clubCard";
 import interactionFindOrCreate from "./interactions/findOrCreate";
 import interactionDocumentation from "./interactions/documentation";
 import interactionWildWildWest from "./interactions/wildWildWest";
 import interactionOlympics from "./interactions/olympics";
-import interactionGamelab from "./interactions/gamelab";
+// import interactionGamelab from "./interactions/gamelab";
 
 import interactionBreakout from "./interactions/breakout";
 import interactionBreakoutUpdate from "./interactions/trigger/updateBreakouts";
 
 import interactionFileShare from "./interactions/fileShare";
 
-import interactionSOMPromote from "./interactions/som/promote.js";
-import interactionSOMLookup from "./interactions/som/lookup";
-import interactionClubInit from "./interactions/clubInit";
+// import interactionSOMPromote from "./interactions/som/promote.js";
+// import interactionSOMLookup from "./interactions/som/lookup";
+// import interactionClubInit from "./interactions/clubInit";
 import interactionReportForm from "./interactions/reportForm";
 import interactionReportFormSubmit from "./interactions/reportFormSubmit";
 import interactionEmail from "./interactions/email";
@@ -265,12 +266,30 @@ controller.on("slash_command", async (bot, message) => {
 
       try {
         switch (command) {
-          case "/som-promote":
-            await interactionSOMPromote(bot, message);
+
+          case "/airtable":
+            await interactionAirtable(bot, message);
             break;
-          case "/som-lookup":
-            await interactionSOMLookup(bot, message);
+
+          case "/address":
+          // case "/leader-address":
+            await interactionAddress(bot, message);
             break;
+
+          case "/my-email":
+            await interactionEmail(bot, message);
+            break;
+
+          case "/roll":
+            await interactionRoll(bot, message);
+            break;
+
+          // case "/som-promote":
+          //   await interactionSOMPromote(bot, message);
+          //   break;
+          // case "/som-lookup":
+          //   await interactionSOMLookup(bot, message);
+          //   break;
           // case '/som-report':
           //   await interactionSOMReport(bot, message)
           //   break
@@ -280,88 +299,75 @@ controller.on("slash_command", async (bot, message) => {
           // case '/som-invite':
           //   await interactionSOMInvite(bot, message)
           //   break
-          case "/meeting-stats":
-          case "/stats":
-            await interactionStats(bot, message);
-            break;
+          // case "/meeting-stats":
+          // case "/stats":
+          //   await interactionStats(bot, message);
+          //   break;
 
-          case "/announcement":
-            await interactionAnnouncement(bot, message);
-            break;
+          // case "/announcement":
+          //   await interactionAnnouncement(bot, message);
+          //   break;
 
-          case "/airtable":
-            await interactionAirtable(bot, message);
-            break;
+          // case "/club-address":
+          //   await interactionClubAddress(bot, message);
+          //   break;
 
-          case "/address":
-          case "/leader-address":
-            await interactionAddress(bot, message);
-            break;
+          // case "/club-card":
+          //   await interactionClubCard(bot, message);
+          //   break;
 
-          case "/club-address":
-            await interactionClubAddress(bot, message);
-            break;
+          // case "/promo":
+          //   await interactionPromo(bot, message);
+          //   break;
 
-          case "/club-card":
-            await interactionClubCard(bot, message);
-            break;
+          // case "/get":
+          //   await interactionGet(bot, message);
+          //   break;
 
-          case "/promo":
-            await interactionPromo(bot, message);
-            break;
+          // case "/rename-channel":
+          //   await interactionRename(bot, message);
+          //   break;
 
-          case "/get":
-            await interactionGet(bot, message);
-            break;
+          // case "/moderate":
+          //   await interactionModerate(bot, message);
+          //   break;
 
-          case "/my-email":
-            await interactionEmail(bot, message);
-            break;
+          // case "/slack-invite":
+          //   await interactionSlackInvite(bot, message);
+          //   break;
 
-          case "/rename-channel":
-            await interactionRename(bot, message);
-            break;
+          // case "/report":
+          //   await interactionReport(bot, message);
+          //   break;
 
-          case "/moderate":
-            await interactionModerate(bot, message);
-            break;
+          // case "/meeting-time":
+          //   await interactionMeetingTime(bot, message);
+          //   break;
 
-          case "/slack-invite":
-            await interactionSlackInvite(bot, message);
-            break;
+          // case "/meeting-add":
+          //   await interactionMeetingAdd(bot, message);
+          //   break;
 
-          case "/report":
-            await interactionReport(bot, message);
-            break;
+          // case "/meeting-remove":
+          //   await interactionMeetingRemove(bot, message);
+          //   break;
 
-          case "/meeting-time":
-            await interactionMeetingTime(bot, message);
-            break;
+          // case "/meeting-list":
+          //   await interactionMeetingList(bot, message);
+          //   break;
 
-          case "/meeting-add":
-            await interactionMeetingAdd(bot, message);
-            break;
+          // case "/orpheus-tutorial":
+          // case "/meeting-tutorial":
+          //   await interactionTutorial(bot, message);
+          //   break;
 
-          case "/meeting-remove":
-            await interactionMeetingRemove(bot, message);
-            break;
+          // case "/leader-add":
+          //   await interactionLeaderAdd(bot, message);
+          //   break;
 
-          case "/meeting-list":
-            await interactionMeetingList(bot, message);
-            break;
-
-          case "/orpheus-tutorial":
-          case "/meeting-tutorial":
-            await interactionTutorial(bot, message);
-            break;
-
-          case "/leader-add":
-            await interactionLeaderAdd(bot, message);
-            break;
-
-          case "/leader-list":
-            await interactionLeaderList(bot, message);
-            break;
+          // case "/leader-list":
+          //   await interactionLeaderList(bot, message);
+          //   break;
 
           default:
             bot.replyPrivateDelayed(
